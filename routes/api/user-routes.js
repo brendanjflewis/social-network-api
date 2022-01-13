@@ -5,18 +5,25 @@ const {
     getUserById,
     createUser,
     updateUser,
-    deleteUser
-} = require('../../controllers/thought-controller');
+    deleteUser,
+    addFriend,
+    deleteFriend
+} = require('../../controllers/user-controller');
 
 router
     .route('/')
     .get(getAllUsers)
-    .post(createUser)
+    .post(createUser);
 
 router
     .route('/:id')
     .get(getUserById)
     .put(updateUser)
-    .delete(deleteUser)
+    .delete(deleteUser);
 
+router
+    .route('/:userId/friends/:friendId')
+    .post(addFriend)
+    .delete(deleteFriend);
+    
 module.exports = router;
