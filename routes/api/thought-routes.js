@@ -16,14 +16,18 @@ router
     .post(createThought);
 
 router
-    .route('/:id')
+    .route('/:thoughtId')
     .get(getThoughtById)
     .put(updateThought)
     .delete(deleteThought);
 
 router
+    .route('/:thoughtId/reactions')
+    .post(createReaction);
+
+router
     .route('/:thoughtId/reactions/:reactionId')
-    .post(createReaction)
+    // .post(createReaction)
     .delete(deleteReaction);
-    
+
 module.exports = router;
